@@ -1,9 +1,11 @@
 //https://developer.spotify.com/documentation/web-playback-sdk/quick-start/#
 
-export const authEndpoint = "https://acounts.spotify.com/authorize";
+//https://accounts.spotify.com/en/authorize?response_type=token&client_id=adaaf209fb064dfab873a71817029e0d&redirect_uri=https%3A%2F%2Fdeveloper.spotify.com%2Fdocumentation%2Fweb-playback-sdk%2Fquick-start%2F&scope=streaming+user-read-email+user-modify-playback-state+user-read-private&show_dialog=true
 
-const redirectUri = "https://localhost:3000/";
-const clientId ="8765545b25344f0095aa282cbadd8093"
+export const authEndpoint = "https://accounts.spotify.com/en/authorize";
+
+const redirectUri = "http://localhost:3000/callback";
+const clientId ="925ce03872cf4cc88e77303c8f38aecb"
 
 const scopes = [
     "user-read-currently-playing",
