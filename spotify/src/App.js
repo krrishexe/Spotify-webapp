@@ -2,7 +2,7 @@ import './css/App.css';
 import Login from './components/Login';
 import { useEffect } from 'react';
 import { getTokenFormUrl } from './spotify';
-import { useState } from 'react';
+// import { useState } from 'react';
 import SpotifyWebApi from 'spotify-web-api-js';
 import Player from './components/Player';
 import { useDataLayerValue } from './components/DataLayer';
@@ -11,8 +11,8 @@ const spotify = new SpotifyWebApi();
 
 
 function App() {
-  const [token,setToken] = useState(null);
-  const [user,dispatch] = useDataLayerValue();
+  // const [token,setToken] = useState(null);
+  const [user,token,dispatch] = useDataLayerValue();  // put '{}' after you are finished developing.
 
   useEffect(()=>{
     const hash = getTokenFormUrl();
@@ -20,7 +20,12 @@ function App() {
     const _token = hash.access_token;
 
     if(_token){
-      setToken(_token);
+      
+      dispatch({
+        type:"SET_TOKEN",
+        token:_token
+      })
+
       spotify.setAccessToken(_token); 
       spotify.getMe().then((user) =>{     // .then bcoz the getMe() method return a promise.
         dispatch({
@@ -36,11 +41,12 @@ function App() {
   },[]);
 
   console.log("user" , user);
+  console.log("token" , token);
 
   return (
     <div className="app">
       {
-        token ? <Player/> : <Login/>  // if the user comes with a access token in the url then run the player component otherwise run Login component again.
+        token ? <Player spotify={spotify} /> : <Login/>  // if the user comes with a access token in the url then run the player component otherwise run Login component again.
       }
 
     </div>
