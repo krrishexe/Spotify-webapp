@@ -12,7 +12,7 @@ const spotify = new SpotifyWebApi();
 
 function App() {
   const [token,setToken] = useState(null);
-  const [{user},dispatch] = useDataLayerValue();
+  const [user,dispatch] = useDataLayerValue();
 
   useEffect(()=>{
     const hash = getTokenFormUrl();
@@ -22,17 +22,20 @@ function App() {
     if(_token){
       setToken(_token);
       spotify.setAccessToken(_token); 
-      spotify.getMe().then(user =>{     // .then bcoz the getMe() method return a promise.
+      spotify.getMe().then((user) =>{     // .then bcoz the getMe() method return a promise.
         dispatch({
           type:'SET_USER',            // dispatch is like a gun , it will grab the user by the .getMe() method and then will shoot the user to the datalayer and the reducer.
           user:user
         });
+        // console.log("user", user);
       })
     }
-    console.log("user" , user);
     
     console.log("access spotify 🚀", _token); 
+    // eslint-disable-next-line
   },[]);
+
+  console.log("user" , user);
 
   return (
     <div className="app">

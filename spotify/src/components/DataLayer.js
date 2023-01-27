@@ -11,7 +11,7 @@ export const DataLayer = (
      reducer,
      children}) => (                // children is the element which is wrapped inside the DataLayer. , in this case its <App />
     <DataLayerContext.Provider value={useReducer(reducer,initalState)}>
-
+ 
         {children}
  
     </DataLayerContext.Provider>
