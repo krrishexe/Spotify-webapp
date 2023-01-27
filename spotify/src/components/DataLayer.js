@@ -4,16 +4,16 @@ import React,{
     useReducer
 } from 'react'
                                         // creating context API
-export const StateContext = createContext();   // preparing the DataLayer
+export const DataLayerContext = createContext();   // preparing the DataLayer
 
-export const DataLayerContext = (
+export const DataLayer = (
     {initalState ,
      reducer,
      children}) => (                // children is the element which is wrapped inside the DataLayer. , in this case its <App />
-    <DataLayerContext.provider value={useReducer(reducer,initalState)}>
+    <DataLayerContext.Provider value={useReducer(reducer,initalState)}>
 
         {children}
  
-    </DataLayerContext.provider>
+    </DataLayerContext.Provider>
 )
  
