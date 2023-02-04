@@ -9,6 +9,12 @@
 .SidebarOption:hover{
     color: white;
 }
+.sidebar > hr {
+    border: 1px solid #808080;
+    margin: 90%;
+    margin: 10px ;
+}
+
 .sidebarOption__icon{
     height: 20px;
     padding: 0 10px;
@@ -17,4 +23,9 @@
     margin-left: 10px;
     padding: 5px;
     font-size: 12px;
+}
+p{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-size: 16px;
 }
