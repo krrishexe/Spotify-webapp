@@ -1,0 +1,9 @@
+.SidebarOption{
+    color: grey;
+    height: 40px;
+    cursor: pointer;
+    transition: 200ms color ease-in;
+}
+.SidebarOption:hover{
+    color: white;
+}
