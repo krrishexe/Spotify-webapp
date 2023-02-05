@@ -18,11 +18,13 @@ function Sidebar() {
       <br />
       <strong className='sidebar__title'>PLAYLISTS</strong>
       <hr />
+
+      {/* Displaying the playlists  */}
+
       {playlists?.items?.map(playlist =>(
         <SidebarOption title={playlist.name} />
       ))}
-      {/* <SidebarOption title="Your Library" />
-      <SidebarOption title="Your Library" /> */}
+      
 
     </div>
   )

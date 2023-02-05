@@ -20,7 +20,7 @@ function App() {
     const hash = getTokenFromResponse();
     window.location.hash = "";
     let _token = hash.access_token;
-
+    console.log(token);
     if (_token) {
       s.setAccessToken(_token);
 
